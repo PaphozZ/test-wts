@@ -37,7 +37,6 @@ if ($admin) {
     $admin->permissions = [  
         'platform.index' => true,  
         'platform.posts' => true,  
-        'platform.users' => true,  
         'platform.systems.users' => true,  
     ];  
     $admin->is_admin = true;  
