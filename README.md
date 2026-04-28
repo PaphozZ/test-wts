@@ -27,7 +27,9 @@ php artisan orchid:install
   
 ## Создание администратора  
   
-php artisan tinker  
+```bash
+php artisan tinker
+```  
   
 ```php
 $admin = User::where('email', 'admin@example.com')->first();  
@@ -57,7 +59,9 @@ if ($admin) {
     
 ## Запуск  
   
-php artisan serve  
+```bash
+php artisan serve
+```  
   
 ## API эндпоинты  
   
