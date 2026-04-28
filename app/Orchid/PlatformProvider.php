@@ -9,6 +9,9 @@ use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
 use Orchid\Screen\Actions\Menu;
 use Orchid\Support\Color;
+use Orchid\Platform\Screens\PlatformScreen;
+use Orchid\Platform\Screens\UserScreen;
+use Orchid\Platform\Screens\RoleScreen;
 
 class PlatformProvider extends OrchidServiceProvider
 {
@@ -26,6 +29,15 @@ class PlatformProvider extends OrchidServiceProvider
         // ...
     }
 
+    public function screens(): array
+    {
+        return [
+            PlatformScreen::class,
+            UserScreen::class,
+            RoleScreen::class,
+        ];
+    }
+
     /**
      * Register the application menu.
      *
@@ -34,6 +46,20 @@ class PlatformProvider extends OrchidServiceProvider
     public function menu(): array
     {
         return [
+            Menu::make('Пользователи')
+                ->icon('user')
+                ->route('platform.systems.users')
+                ->title('Управление'),
+
+            Menu::make('Публикации')
+                ->icon('note')
+                ->route('platform.post.list'),
+
+            Menu::make('Выйти')
+                ->icon('logout')
+                ->route('logout')
+                ->method('POST'),
+
             Menu::make('Get Started')
                 ->icon('bs.book')
                 ->title('Navigation')
